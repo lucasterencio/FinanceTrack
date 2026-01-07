@@ -3,7 +3,7 @@ import { createContext, useState, type ReactNode } from "react";
 interface FinanceContextData {
   category: string;
   financeType: FinanceTypeProps;
-  financeValue: number | undefined;
+  financeValue: string;
   financeDescription: string;
 
   handleValueChange: (newValue: FinanceCategoryProps) => void;
@@ -20,7 +20,7 @@ export const FinanceContext = createContext({} as FinanceContextData);
 export function FinanceProvider({ children }: { children: ReactNode }) {
   const [financeCategory, setFinanceCategory] = useState<FinanceCategoryProps>("outros");
   const [financeType, setFinanceType] = useState<FinanceTypeProps>("despesa");
-  const [financeValue, setFinanceValue] = useState<number>()
+  const [financeValue, setFinanceValue] = useState<string>("")
   const [financeDescription, setFinanceDescription] = useState<string>("")
 
   function handleValueChange(newValue: FinanceCategoryProps) {
@@ -33,7 +33,7 @@ export function FinanceProvider({ children }: { children: ReactNode }) {
   }
 
   function handleSetValue(value: string){
-    setFinanceValue(Number(value))
+    setFinanceValue(value)
   }
 
   function handleSetDescription(description: string){

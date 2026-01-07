@@ -40,7 +40,7 @@ export function DialogAddTransaction() {
       return;
     }
 
-    if (financeValue === 0 || financeValue === undefined) {
+    if (!financeValue || Number(financeValue) <= 0) {
       toast.error("Adicione um valor");
       return;
     }
@@ -48,7 +48,7 @@ export function DialogAddTransaction() {
     addDoc(collection(db, "finance"), {
       type: financeType,
       description: financeDescription,
-      value: financeValue,
+      value: Number(financeValue),
       category,
       uid: user?.uid,
       name: user?.name,
@@ -96,7 +96,7 @@ export function DialogAddTransaction() {
             </div>
 
             <div className="grid gap-3 w-full">
-              <label htmlFor="name-1">Valor (R$)</label>
+              <label>Valor (R$)</label>
               <Input
                 value={financeValue}
                 onChange={(e) => handleSetValue(e.target.value)}
@@ -106,14 +106,11 @@ export function DialogAddTransaction() {
             </div>
 
             <div className="grid gap-3 w-full">
-              <label htmlFor="name-1">Categoria</label>
+              <label>Categoria</label>
               <SelectCategory />
             </div>
           </div>
           <DialogFooter className="w-full">
-            {/* <DialogClose asChild>
-              <Button variant="outline">Cancel</Button>
-            </DialogClose> */}
             <Button
               onClick={handleAddTransaction}
               type="submit"
