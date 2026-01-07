@@ -25,7 +25,7 @@ export const Login = () => {
     signInWithEmailAndPassword(auth, data.email, data.password)
       .then(() => {
         toast.success("Logado com sucesso");
-        navigate("/", { replace: true });
+        navigate("/dashboard", { replace: true });
       })
       .catch(() => {
         toast.error("Erro ao logar");

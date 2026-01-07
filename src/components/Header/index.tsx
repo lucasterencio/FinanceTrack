@@ -11,7 +11,7 @@ export const Header = () => {
 
   async function handleLogout() {
     await signOut(auth);
-    navigate("/login")
+    navigate("/")
   }
 
   return (

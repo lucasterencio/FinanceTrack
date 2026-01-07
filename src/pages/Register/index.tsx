@@ -31,7 +31,7 @@ export const Register = () => {
       await updateProfile(user.user, { displayName: data.name })
 
       toast.success("Usuario criado com sucesso")
-      navigate("/")
+      navigate("/dashboard")
     })
     .catch(() => {
       toast.error("Erro ao cadastrar usuario")
