@@ -28,7 +28,7 @@ export const Login = () => {
         navigate("/dashboard", { replace: true });
       })
       .catch(() => {
-        toast.error("Erro ao logar");
+        toast.error("Email ou senha incorretos");
       });
   }
 

@@ -15,12 +15,12 @@ export const router = createBrowserRouter([
         path: "/dashboard",
         element: <FinanceProvider> <Private> <Home /> </Private> </FinanceProvider>
       },
-
-      {
-        path: "/profile",
-        element: <Private> <Profile /> </Private>
-      }
     ]
+  },
+
+  {
+    path: "/profile",
+    element: <Private> <Profile /> </Private>
   },
 
   {

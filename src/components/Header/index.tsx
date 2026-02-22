@@ -33,7 +33,7 @@ export const Header = () => {
         <div className="flex items-center gap-7">
           <Link
             className="hover:bg-gray-100 transition duration-500 w-10 h-10 rounded-full flex items-center justify-center"
-            to="/"
+            to="/profile"
           >
             <FiUser size={23} />
           </Link>
